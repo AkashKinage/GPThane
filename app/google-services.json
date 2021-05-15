@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "475053481810",
+    "firebase_url": "https://gpthane-college-app-default-rtdb.firebaseio.com",
+    "project_id": "gpthane-college-app",
+    "storage_bucket": "gpthane-college-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:475053481810:android:94b318f14d156a5d6d648b",
+        "android_client_info": {
+          "package_name": "com.example.gpthane"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "475053481810-kl4grv427s8982p5q37ht455regr297a.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDYTD7ae7MkwRVaFQRRqkIkV_FArfwLeHo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "475053481810-kl4grv427s8982p5q37ht455regr297a.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
