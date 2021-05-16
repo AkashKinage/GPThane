@@ -1,124 +1,266 @@
-<?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
+<?xml version="1.0" encoding="UTF-8"?>
+
+    <LinearLayout
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
     android:layout_height="match_parent"
-    tools:context=".TeacherRegister">
+    android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="25dp">
+        android:orientation="horizontal">
 
         <TextView
-            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:letterSpacing="0.03"
+            android:textStyle="bold"
+            android:textSize="30dp"
+            android:textColor="#0d6e6a"
             android:text="Register"
-            android:textColor="@color/black"
-            android:textSize="20sp"
-            android:layout_margin="10dp"/>
+            android:layout_marginRight="20dp"/>
 
         <TextView
-            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="|"
-            android:textSize="20sp"
-            android:layout_margin="10dp"/>
+            android:layout_width="wrap_content"
+            android:letterSpacing="0.03"
+            android:textStyle="bold"
+            android:textSize="35dp"
+            android:textColor="#0d6e6a"
+            android:text="|"/>
 
         <TextView
             android:id="@+id/tvTeacherLogin"
-            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:letterSpacing="0.03"
+            android:textStyle="bold"
+            android:textSize="30dp"
+            android:textColor="#0d6e6a"
             android:text="Login"
-            android:textSize="20sp"
-            android:layout_margin="10dp"/>
+            android:layout_marginLeft="20dp"/>
     </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
+    <ImageView
+        android:layout_height="150dp"
+        android:layout_width="300dp"
+        android:src="@drawable/image"/>
+
+    <TextView
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_marginTop="80dp"
-        android:padding="20dp">
+        android:layout_width="wrap_content"
+        android:letterSpacing="0.03"
+        android:textStyle="bold"
+        android:textSize="35dp"
+        android:textColor="#0d6e6a"
+        android:text="Register"/>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Name:"
-            android:textSize="16sp"/>
+    <EditText
+        android:id="@+id/etTeacherName"
+        android:layout_height="45dp"
+        android:layout_width="350dp"
+        android:textStyle="bold"
+        android:textSize="18dp"
+        android:textColor="#0d6e6a"
+        android:text="Name"
+        android:paddingLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/forget"/>
 
-        <EditText
-            android:id="@+id/etTeacherName"
-            android:layout_width="280dp"
-            android:layout_height="wrap_content"
-            android:hint="Full Name"
-            android:layout_marginTop="10dp"/>
+    <EditText
+        android:id="@+id/etTeacherPhoneNo"
+        android:layout_height="45dp"
+        android:layout_width="350dp"
+        android:textStyle="bold"
+        android:textSize="18dp"
+        android:textColor="#0d6e6a"
+        android:text="Phone Number"
+        android:paddingLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/forget"/>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Phone Number"
-            android:textSize="16sp"
-            android:layout_marginTop="20dp"/>
+    <EditText
+        android:id="@+id/etTeacherEmail"
+        android:layout_height="45dp"
+        android:layout_width="350dp"
+        android:textStyle="bold"
+        android:textSize="18dp"
+        android:textColor="#0d6e6a"
+        android:text="Email"
+        android:paddingLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/forget"/>
 
-        <EditText
-            android:id="@+id/etTeacherPhoneNo"
-            android:layout_width="280dp"
-            android:layout_height="wrap_content"
-            android:hint="Phone Number"
-            android:layout_marginTop="10dp"/>
+    <EditText
+        android:id="@+id/etPassword"
+        android:layout_height="45dp"
+        android:layout_width="350dp"
+        android:textStyle="bold"
+        android:textSize="18dp"
+        android:textColor="#0d6e6a"
+        android:text="Password"
+        android:paddingLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/forget"/>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Email:"
-            android:textSize="16sp"
-            android:layout_marginTop="20dp"/>
-
-        <EditText
-            android:id="@+id/etTeacherEmail"
-            android:layout_width="280dp"
-            android:layout_height="wrap_content"
-            android:hint="Email"
-            android:layout_marginTop="10dp"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Unique ID"
-            android:textSize="16sp"
-            android:layout_marginTop="20dp"/>
-
-        <EditText
-            android:id="@+id/etTeacherUniqueId"
-            android:layout_width="280dp"
-            android:layout_height="wrap_content"
-            android:hint="Unique ID"
-            android:layout_marginTop="10dp"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Password"
-            android:textSize="16sp"
-            android:layout_marginTop="20dp"/>
-
-        <EditText
-            android:id="@+id/etPassword"
-            android:layout_width="280dp"
-            android:layout_height="wrap_content"
-            android:hint="Password"
-            android:layout_marginTop="10dp"/>
-    </LinearLayout>
+    <EditText
+        android:id="@+id/etTeacherUniqueId"
+        android:layout_height="45dp"
+        android:layout_width="350dp"
+        android:textStyle="bold"
+        android:textSize="18dp"
+        android:textColor="#0d6e6a"
+        android:text="Unique ID"
+        android:paddingLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/forget"/>
 
     <Button
         android:id="@+id/btnTeacherRegister"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
+        android:layout_width="350dp"
+        android:textStyle="bold"
+        android:textSize="18dp"
+        android:textColor="#FFF"
         android:text="Register"
-        android:layout_marginTop="600dp"
-        android:layout_gravity="center_horizontal"/>
+        android:layout_marginTop="25dp"
+        android:background="@drawable/button"/>
 
-</FrameLayout>
+    <TextView
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:textStyle="bold"
+        android:textSize="18dp"
+        android:textColor="#0d6e6a"
+        android:text="Already have an account? Sign In"
+        android:layout_marginTop="15dp"/>
+
+</LinearLayout>
+
+
+<!--<?xml version="1.0" encoding="utf-8"?>-->
+<!--<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--    xmlns:tools="http://schemas.android.com/tools"-->
+<!--    android:layout_width="match_parent"-->
+<!--    android:layout_height="match_parent"-->
+<!--    tools:context=".TeacherRegister">-->
+
+<!--    <LinearLayout-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:orientation="horizontal"-->
+<!--        android:layout_gravity="center_horizontal"-->
+<!--        android:layout_marginTop="25dp">-->
+
+<!--        <TextView-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="Register"-->
+<!--            android:textColor="@color/black"-->
+<!--            android:textSize="20sp"-->
+<!--            android:layout_margin="10dp"/>-->
+
+<!--        <TextView-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="|"-->
+<!--            android:textSize="20sp"-->
+<!--            android:layout_margin="10dp"/>-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/tvTeacherLogin"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="Login"-->
+<!--            android:textSize="20sp"-->
+<!--            android:layout_margin="10dp"/>-->
+<!--    </LinearLayout>-->
+
+<!--    <LinearLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:orientation="vertical"-->
+<!--        android:layout_marginTop="80dp"-->
+<!--        android:padding="20dp">-->
+
+<!--        <TextView-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="Name:"-->
+<!--            android:textSize="16sp"/>-->
+
+<!--        <EditText-->
+<!--            android:id="@+id/etTeacherName"-->
+<!--            android:layout_width="280dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:hint="Full Name"-->
+<!--            android:layout_marginTop="10dp"/>-->
+
+<!--        <TextView-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="Phone Number"-->
+<!--            android:textSize="16sp"-->
+<!--            android:layout_marginTop="20dp"/>-->
+
+<!--        <EditText-->
+<!--            android:id="@+id/etTeacherPhoneNo"-->
+<!--            android:layout_width="280dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:hint="Phone Number"-->
+<!--            android:layout_marginTop="10dp"/>-->
+
+<!--        <TextView-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="Email:"-->
+<!--            android:textSize="16sp"-->
+<!--            android:layout_marginTop="20dp"/>-->
+
+<!--        <EditText-->
+<!--            android:id="@+id/etTeacherEmail"-->
+<!--            android:layout_width="280dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:hint="Email"-->
+<!--            android:layout_marginTop="10dp"/>-->
+
+<!--        <TextView-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="Unique ID"-->
+<!--            android:textSize="16sp"-->
+<!--            android:layout_marginTop="20dp"/>-->
+
+<!--        <EditText-->
+<!--            android:id="@+id/etTeacherUniqueId"-->
+<!--            android:layout_width="280dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:hint="Unique ID"-->
+<!--            android:layout_marginTop="10dp"/>-->
+
+<!--        <TextView-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="Password"-->
+<!--            android:textSize="16sp"-->
+<!--            android:layout_marginTop="20dp"/>-->
+
+<!--        <EditText-->
+<!--            android:id="@+id/etPassword"-->
+<!--            android:layout_width="280dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:hint="Password"-->
+<!--            android:layout_marginTop="10dp"/>-->
+<!--    </LinearLayout>-->
+
+<!--    <Button-->
+<!--        android:id="@+id/btnTeacherRegister"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="Register"-->
+<!--        android:layout_marginTop="600dp"-->
+<!--        android:layout_gravity="center_horizontal"/>-->
+
+<!--</FrameLayout>-->

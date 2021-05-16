@@ -3,11 +3,13 @@ package com.example.gpthane;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -21,12 +23,12 @@ import org.jetbrains.annotations.NotNull;
 
 public class TeacherRegister extends AppCompatActivity {
 
-    EditText etTeacherName, etTeacherUniqueId, etPassword, etTeacherEmail, etTeacherPhoneNo;
-    Button btnTeacherRegister;
-    TextView tvTeacherLogin;
-    String UniqueId = "GPTTeacher123";
+    private EditText etTeacherName, etTeacherUniqueId, etPassword, etTeacherEmail, etTeacherPhoneNo;
+    private Button btnTeacherRegister;
+    private TextView tvTeacherLogin;
     private FirebaseAuth auth;
     private String name, email, phone, enteredUniqueId, password;
+    private ProgressBar pd;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +41,8 @@ public class TeacherRegister extends AppCompatActivity {
         etTeacherEmail = findViewById(R.id.etTeacherEmail);
         etTeacherPhoneNo = findViewById(R.id.etTeacherPhoneNo);
 
+        pd = new ProgressBar(this);
+
         auth = FirebaseAuth.getInstance();
 
         btnTeacherRegister = findViewById(R.id.btnTeacherRegister);
@@ -48,13 +52,15 @@ public class TeacherRegister extends AppCompatActivity {
         tvTeacherLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(TeacherRegister.this, "Login", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(getApplicationContext(), TeacherLogin.class));
             }
         });
 
         btnTeacherRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                pd.setVisibility(View.VISIBLE);
+
                 name = etTeacherName.getText().toString();
                 email = etTeacherEmail.getText().toString();
                 phone = etTeacherPhoneNo.getText().toString();
@@ -116,7 +122,9 @@ public class TeacherRegister extends AppCompatActivity {
                                             @Override
                                             public void onComplete(@NonNull @NotNull Task<Void> task) {
                                                 if(task.isSuccessful()){
+                                                    pd.setVisibility(View.GONE);
                                                     Toast.makeText(TeacherRegister.this, "Registration Successful!", Toast.LENGTH_SHORT).show();
+                                                    startActivity(new Intent(getApplicationContext(), TeacherActivity.class));
                                                 }
                                                 else{
                                                     Toast.makeText(TeacherRegister.this, "Registration Unsuccessful!", Toast.LENGTH_SHORT).show();

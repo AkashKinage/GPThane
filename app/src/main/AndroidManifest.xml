@@ -8,8 +8,10 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.GPThane">
-        <activity android:name=".TeacherRegister"></activity>
+        android:theme="@style/Theme.AppCompat.Light">
+        <activity android:name=".TeacherActivity"></activity>
+        <activity android:name=".TeacherLogin" />
+        <activity android:name=".TeacherRegister" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
