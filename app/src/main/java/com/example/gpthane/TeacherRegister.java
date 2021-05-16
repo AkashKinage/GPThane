@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Patterns;
 import android.view.View;
@@ -40,6 +41,8 @@ public class TeacherRegister extends AppCompatActivity {
         etPassword = findViewById(R.id.etPassword);
         etTeacherEmail = findViewById(R.id.etTeacherEmail);
         etTeacherPhoneNo = findViewById(R.id.etTeacherPhoneNo);
+
+        etTeacherName.setHintTextColor(Color.rgb(13,110,106));
 
         pd = new ProgressBar(this);
 

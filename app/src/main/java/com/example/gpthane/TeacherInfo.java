@@ -1,6 +1,7 @@
 package com.example.gpthane;
 
 public class TeacherInfo {
+
     public String name, email, phone;
 
     public TeacherInfo(){

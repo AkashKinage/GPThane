@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-    <LinearLayout
+<LinearLayout
     android:gravity="center_horizontal"
     android:orientation="vertical"
     android:layout_height="match_parent"
@@ -32,15 +32,15 @@
             android:text="|"/>
 
         <TextView
-            android:id="@+id/tvTeacherLogin"
-            android:layout_height="wrap_content"
+            android:id="@+id/tvStudentLogin"
             android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
             android:letterSpacing="0.03"
-            android:textStyle="bold"
-            android:textSize="30dp"
-            android:textColor="#0d6e6a"
             android:text="Login"
-            android:layout_marginLeft="20dp"/>
+            android:textColor="#0d6e6a"
+            android:textSize="30dp"
+            android:textStyle="bold" />
     </LinearLayout>
 
     <ImageView
@@ -58,7 +58,7 @@
         android:text="Register"/>
 
     <EditText
-        android:id="@+id/etTeacherName"
+        android:id="@+id/etStudentName"
         android:layout_height="45dp"
         android:layout_width="350dp"
         android:textStyle="bold"
@@ -66,23 +66,35 @@
         android:textColorHint="#0d6e6a"
         android:hint="Name"
         android:paddingLeft="20dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="18dp"
         android:background="@drawable/forget"/>
 
     <EditText
-        android:id="@+id/etTeacherPhoneNo"
+        android:id="@+id/etStudentEnrollmentNo"
         android:layout_height="45dp"
         android:layout_width="350dp"
         android:textStyle="bold"
         android:textSize="18dp"
         android:textColorHint="#0d6e6a"
-        android:hint="Phone Number"
+        android:hint="Enrollment Number"
         android:paddingLeft="20dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="18dp"
         android:background="@drawable/forget"/>
 
     <EditText
-        android:id="@+id/etTeacherEmail"
+        android:id="@+id/etStudentPhoneNo"
+        android:layout_width="350dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="18dp"
+        android:background="@drawable/forget"
+        android:paddingLeft="20dp"
+        android:hint="Phone Number"
+        android:textColorHint="#0d6e6a"
+        android:textSize="18dp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/etStudentEmail"
         android:layout_height="45dp"
         android:layout_width="350dp"
         android:textStyle="bold"
@@ -90,11 +102,11 @@
         android:textColorHint="#0d6e6a"
         android:hint="Email"
         android:paddingLeft="20dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="18dp"
         android:background="@drawable/forget"/>
 
     <EditText
-        android:id="@+id/etPassword"
+        android:id="@+id/etStudentPassword"
         android:layout_height="45dp"
         android:layout_width="350dp"
         android:textStyle="bold"
@@ -102,39 +114,74 @@
         android:textColorHint="#0d6e6a"
         android:hint="Password"
         android:paddingLeft="20dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="18dp"
         android:background="@drawable/forget"/>
 
-    <EditText
-        android:id="@+id/etTeacherUniqueId"
-        android:layout_height="45dp"
-        android:layout_width="350dp"
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Select Year:"
+        android:layout_marginTop="18dp"
         android:textStyle="bold"
         android:textSize="18dp"
-        android:textColorHint="#0d6e6a"
-        android:hint="Unique ID"
+        android:textColor="#0d6e6a"/>
+
+    <RadioGroup
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:paddingLeft="20dp"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/forget"/>
+        android:layout_marginTop="18dp"
+        android:orientation="horizontal"
+        android:id="@+id/radioGroup">
+
+
+        <RadioButton
+            android:id="@+id/rb1stYear"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1st Year"
+            android:textSize="16dp"
+            android:textStyle="bold"
+            android:textColor="#0d6e6a"/>
+
+        <RadioButton
+            android:id="@+id/rb2ndYear"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2nd Year"
+            android:textSize="16dp"
+            android:textStyle="bold"
+            android:textColor="#0d6e6a"/>
+
+        <RadioButton
+            android:id="@+id/rb3rdYear"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="3rd Year"
+            android:textSize="16dp"
+            android:textStyle="bold"
+            android:textColor="#0d6e6a"/>
+
+    </RadioGroup>
 
     <Button
-        android:id="@+id/btnTeacherRegister"
+        android:id="@+id/btnStudentRegister"
         android:layout_height="50dp"
         android:layout_width="350dp"
         android:textStyle="bold"
         android:textSize="18dp"
         android:textColor="#FFF"
         android:text="Register"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="18dp"
         android:background="@drawable/button"/>
 
-    <TextView
-        android:layout_height="wrap_content"
-        android:layout_width="wrap_content"
-        android:textStyle="bold"
-        android:textSize="18dp"
-        android:textColor="#0d6e6a"
-        android:text="Already have an account? Sign In"
-        android:layout_marginTop="15dp"/>
+<!--    <TextView-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:textStyle="bold"-->
+<!--        android:textSize="18dp"-->
+<!--        android:textColor="#0d6e6a"-->
+<!--        android:text="Already have an account? Sign In"-->
+<!--        android:layout_marginTop="15dp"/>-->
 
 </LinearLayout>
