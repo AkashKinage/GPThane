@@ -1,4 +1,4 @@
-package com.example.gpthane;
+package com.example.gpthane.Student;
 
 public class StudentInfo {
 

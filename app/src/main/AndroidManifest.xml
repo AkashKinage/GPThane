@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.gpthane">
 
+    <uses-permission android:name="android.permission.INTERNET"/>
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -9,12 +11,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light">
-        <activity android:name=".StudentActivity"></activity>
-        <activity android:name=".StudentLogin" />
-        <activity android:name=".StudentRegister" />
-        <activity android:name=".TeacherActivity" />
-        <activity android:name=".TeacherLogin" />
-        <activity android:name=".TeacherRegister" />
+        <activity android:name=".Teacher.TeacherUploadNotice"></activity>
+        <activity android:name=".Student.StudentActivity" />
+        <activity android:name=".Student.StudentLogin" />
+        <activity android:name=".Student.StudentRegister" />
+        <activity android:name=".Teacher.TeacherActivity" />
+        <activity android:name=".Teacher.TeacherLogin" />
+        <activity android:name=".Teacher.TeacherRegister" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
