@@ -6,8 +6,10 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.ContentResolver;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.webkit.MimeTypeMap;
 import android.widget.Button;
@@ -17,8 +19,11 @@ import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.example.gpthane.R;
+import com.google.android.gms.tasks.Continuation;
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
@@ -27,6 +32,9 @@ import com.google.firebase.storage.UploadTask;
 import com.squareup.picasso.Picasso;
 
 import org.jetbrains.annotations.NotNull;
+
+import java.io.ByteArrayOutputStream;
+import java.io.File;
 
 public class TeacherUploadNotice extends AppCompatActivity {
 
@@ -72,7 +80,7 @@ public class TeacherUploadNotice extends AppCompatActivity {
         });
     }
 
-    private void UploadImage() {
+        private void UploadImage() {
         if (imageUri != null){
             StorageReference filereference = storageReference.child(System.currentTimeMillis() +"."+getFileExtension(imageUri));
 
@@ -80,15 +88,16 @@ public class TeacherUploadNotice extends AppCompatActivity {
                     .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                         @Override
                         public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                            progressBar.setVisibility(View.GONE);
+                            Task<Uri> urlTask = taskSnapshot.getStorage().getDownloadUrl();
+                            while (!urlTask.isSuccessful());
+                            Uri downloadUrl = urlTask.getResult();
                             Toast.makeText(TeacherUploadNotice.this, "Upload Successful", Toast.LENGTH_SHORT).show();
                             UploadImg uploadImg = new UploadImg(etNoticeTitle.getText().toString().trim(),
-                                    taskSnapshot.getUploadSessionUri().toString());
+                                    downloadUrl.toString());
                             String uploadId = databaseReference.push().getKey();
                             databaseReference.child(uploadId).setValue(uploadImg);
                         }
-                    })
-                    .addOnFailureListener(new OnFailureListener() {
+                    }).addOnFailureListener(new OnFailureListener() {
                         @Override
                         public void onFailure(@NonNull @NotNull Exception e) {
                             Toast.makeText(TeacherUploadNotice.this, e.getMessage(), Toast.LENGTH_SHORT).show();

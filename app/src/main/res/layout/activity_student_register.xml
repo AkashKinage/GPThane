@@ -7,41 +7,41 @@
     android:layout_width="match_parent"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
+<!--    <LinearLayout-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:orientation="horizontal">-->
 
-        <TextView
-            android:layout_height="wrap_content"
-            android:layout_width="wrap_content"
-            android:letterSpacing="0.03"
-            android:textStyle="bold"
-            android:textSize="30dp"
-            android:textColor="#0d6e6a"
-            android:text="Register"
-            android:layout_marginRight="20dp"/>
+<!--        <TextView-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:letterSpacing="0.03"-->
+<!--            android:textStyle="bold"-->
+<!--            android:textSize="30dp"-->
+<!--            android:textColor="#0d6e6a"-->
+<!--            android:text="Register"-->
+<!--            android:layout_marginRight="20dp"/>-->
 
-        <TextView
-            android:layout_height="wrap_content"
-            android:layout_width="wrap_content"
-            android:letterSpacing="0.03"
-            android:textStyle="bold"
-            android:textSize="35dp"
-            android:textColor="#0d6e6a"
-            android:text="|"/>
+<!--        <TextView-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:letterSpacing="0.03"-->
+<!--            android:textStyle="bold"-->
+<!--            android:textSize="35dp"-->
+<!--            android:textColor="#0d6e6a"-->
+<!--            android:text="|"/>-->
 
-        <TextView
-            android:id="@+id/tvStudentLogin"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:letterSpacing="0.03"
-            android:text="Login"
-            android:textColor="#0d6e6a"
-            android:textSize="30dp"
-            android:textStyle="bold" />
-    </LinearLayout>
+<!--        <TextView-->
+<!--            android:id="@+id/tvStudentLogin"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginLeft="20dp"-->
+<!--            android:letterSpacing="0.03"-->
+<!--            android:text="Login"-->
+<!--            android:textColor="#0d6e6a"-->
+<!--            android:textSize="30dp"-->
+<!--            android:textStyle="bold" />-->
+<!--    </LinearLayout>-->
 
     <ImageView
         android:layout_height="150dp"
@@ -175,13 +175,14 @@
         android:layout_marginTop="18dp"
         android:background="@drawable/button"/>
 
-<!--    <TextView-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:textStyle="bold"-->
-<!--        android:textSize="18dp"-->
-<!--        android:textColor="#0d6e6a"-->
-<!--        android:text="Already have an account? Sign In"-->
-<!--        android:layout_marginTop="15dp"/>-->
+    <TextView
+        android:id="@+id/tvStudentLogin"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:textStyle="bold"
+        android:textSize="18dp"
+        android:textColor="#0d6e6a"
+        android:text="Already have an account? Sign In"
+        android:layout_marginTop="15dp"/>
 
 </LinearLayout>

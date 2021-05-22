@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.gpthane">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -11,7 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light">
-        <activity android:name=".Teacher.TeacherUploadNotice"></activity>
+        <activity android:name=".Student.StudentNotice"></activity>
+        <activity android:name=".Teacher.TeacherUploadNotice" />
         <activity android:name=".Student.StudentActivity" />
         <activity android:name=".Student.StudentLogin" />
         <activity android:name=".Student.StudentRegister" />

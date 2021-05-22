@@ -32,14 +32,14 @@
 
     <Button
         android:id="@+id/btnTeacher"
-        android:layout_height="50dp"
         android:layout_width="350dp"
+        android:layout_height="50dp"
         android:layout_marginTop="40dp"
-        android:textStyle="bold"
-        android:textSize="18dp"
-        android:textColor="#FFF"
+        android:background="@drawable/button"
         android:text="Teacher"
-        android:background="@drawable/button"/>
+        android:textColor="#FFF"
+        android:textSize="18dp"
+        android:textStyle="bold" />
 
     <Button
         android:id="@+id/btnStudent"

@@ -18,7 +18,7 @@ public class TeacherActivity extends AppCompatActivity implements View.OnClickLi
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_teacher);
 
-        cdUploadMotice = findViewById(R.id.cdUploadMotice);
+        cdUploadMotice = findViewById(R.id.cdUploadNotice);
 
         cdUploadMotice.setOnClickListener(this);
     }
@@ -26,7 +26,7 @@ public class TeacherActivity extends AppCompatActivity implements View.OnClickLi
     @Override
     public void onClick(View v) {
         switch (v.getId()){
-            case R.id.cdUploadMotice:
+            case R.id.cdUploadNotice:
                 Intent intent = new Intent(TeacherActivity.this, TeacherUploadNotice.class);
                 startActivity(intent);
                 break;
