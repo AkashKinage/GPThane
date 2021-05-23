@@ -46,7 +46,7 @@
     <ImageView
         android:layout_height="150dp"
         android:layout_width="300dp"
-        android:src="@drawable/image"/>
+        android:src="@drawable/gpt_logo"/>
 
     <TextView
         android:layout_height="wrap_content"

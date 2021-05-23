@@ -44,9 +44,9 @@
 <!--    </LinearLayout>-->
 
     <ImageView
-        android:layout_height="350dp"
-        android:layout_width="500dp"
-        android:src="@drawable/image"/>
+        android:layout_height="300dp"
+        android:layout_width="400dp"
+        android:src="@drawable/gpt_logo"/>
 
     <TextView
         android:layout_height="wrap_content"

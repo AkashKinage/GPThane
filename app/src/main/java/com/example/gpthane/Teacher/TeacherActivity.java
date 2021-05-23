@@ -11,7 +11,7 @@ import com.example.gpthane.R;
 
 public class TeacherActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private CardView cdUploadMotice;
+    private CardView cdUploadMotice, cvUploadPdf;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,8 +19,10 @@ public class TeacherActivity extends AppCompatActivity implements View.OnClickLi
         setContentView(R.layout.activity_teacher);
 
         cdUploadMotice = findViewById(R.id.cdUploadNotice);
+        cvUploadPdf = findViewById(R.id.cvUploadPdf);
 
         cdUploadMotice.setOnClickListener(this);
+        cvUploadPdf.setOnClickListener(this);
     }
 
     @Override
@@ -28,6 +30,11 @@ public class TeacherActivity extends AppCompatActivity implements View.OnClickLi
         switch (v.getId()){
             case R.id.cdUploadNotice:
                 Intent intent = new Intent(TeacherActivity.this, TeacherUploadNotice.class);
+                startActivity(intent);
+                break;
+
+            case R.id.cvUploadPdf:
+                intent = new Intent(TeacherActivity.this, UploadPDFActivity.class);
                 startActivity(intent);
                 break;
         }

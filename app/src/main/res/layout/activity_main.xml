@@ -7,11 +7,6 @@
     android:layout_width="match_parent"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <ImageView
-        android:layout_height="350dp"
-        android:layout_width="500dp"
-        android:layout_marginTop="20dp"
-        android:src="@drawable/image"/>
 
     <TextView
         android:layout_height="wrap_content"
@@ -21,6 +16,11 @@
         android:textSize="45dp"
         android:textColor="#0d6e6a"
         android:text="Welcome"/>
+
+    <ImageView
+        android:layout_height="350dp"
+        android:layout_width="500dp"
+        android:src="@drawable/gpt_logo"/>
 
     <TextView
         android:layout_height="wrap_content"
