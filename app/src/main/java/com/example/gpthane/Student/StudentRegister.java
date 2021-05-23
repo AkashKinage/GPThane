@@ -3,6 +3,7 @@ package com.example.gpthane.Student;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Patterns;
@@ -32,6 +33,7 @@ public class StudentRegister extends AppCompatActivity {
     private RadioGroup radioGroup;
     private FirebaseAuth auth;
     private String name, enrollmentno, phone, email, password;
+    ProgressDialog progressDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,6 +68,12 @@ public class StudentRegister extends AppCompatActivity {
         btnStudentRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                progressDialog = new ProgressDialog(StudentRegister.this);
+                progressDialog.show();
+                progressDialog.setContentView(R.layout.progressbar_processing);
+                progressDialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+
                 name = etStudentName.getText().toString();
                 enrollmentno = etStudentEnrollmentNo.getText().toString();
                 phone = etStudentPhoneNo.getText().toString();
@@ -128,6 +136,7 @@ public class StudentRegister extends AppCompatActivity {
                             @Override
                             public void onComplete(@NonNull @NotNull Task<AuthResult> task) {
                                 if(task.isSuccessful()){
+                                    progressDialog.dismiss();
                                     StudentInfo studentInfo = new StudentInfo(
                                         name,
                                         enrollmentno,
@@ -191,6 +200,7 @@ public class StudentRegister extends AppCompatActivity {
                                 }
                                 else {
                                     Toast.makeText(StudentRegister.this, "Error!", Toast.LENGTH_SHORT).show();
+                                    progressDialog.dismiss();
                                 }
                             }
                         });

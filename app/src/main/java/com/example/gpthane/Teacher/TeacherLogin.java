@@ -3,6 +3,7 @@ package com.example.gpthane.Teacher;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Patterns;
@@ -27,7 +28,8 @@ public class TeacherLogin extends AppCompatActivity {
     private TextView tvTeacherRegister;
     private Button btnTeacherLogin;
     private FirebaseAuth auth;
-    private ProgressBar pd;
+    //private ProgressBar pd;
+    ProgressDialog progressDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,7 +45,7 @@ public class TeacherLogin extends AppCompatActivity {
 
         auth = FirebaseAuth.getInstance();
 
-        pd = new ProgressBar(this);
+        //pd = new ProgressBar(this);
 
         tvTeacherRegister.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -55,7 +57,13 @@ public class TeacherLogin extends AppCompatActivity {
         btnTeacherLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                pd.setVisibility(View.VISIBLE);
+                //pd.setVisibility(View.VISIBLE);
+
+                progressDialog = new ProgressDialog(TeacherLogin.this);
+                progressDialog.show();
+                progressDialog.setContentView(R.layout.progressbar);
+                progressDialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+
 
                 String email = etTeacherEmail.getText().toString();
                 String password = etTeacherPassword.getText().toString();
@@ -63,7 +71,8 @@ public class TeacherLogin extends AppCompatActivity {
                 if(email.isEmpty()){
                     etTeacherEmail.setError("Email is Empty");
                     etTeacherEmail.requestFocus();
-                    return;
+                   return;
+
                 }
                 if(!Patterns.EMAIL_ADDRESS.matcher(email).matches()){
                     etTeacherEmail.setError("Email is Invalid");
@@ -85,7 +94,9 @@ public class TeacherLogin extends AppCompatActivity {
                         @Override
                         public void onComplete(@NonNull @NotNull Task<AuthResult> task) {
                             if(task.isSuccessful()){
-                                pd.setVisibility(View.GONE);
+                                //pd.setVisibility(View.GONE);
+
+                                progressDialog.dismiss();
 
                                 Toast.makeText(TeacherLogin.this, "Login Successful!", Toast.LENGTH_SHORT).show();
                                 startActivity(new Intent(getApplicationContext(), TeacherActivity.class));

@@ -9,4 +9,6 @@
     <color name="white">#FFFFFFFF</color>
     <color name="pink">#FD5890</color>
     <color name="greenish">#0d6e6a</color>
+    <color name="orange">#FF7F00</color>
+    <color name="colorAccent">#03DAC5</color>
 </resources>

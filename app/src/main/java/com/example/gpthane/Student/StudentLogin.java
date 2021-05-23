@@ -3,6 +3,7 @@ package com.example.gpthane.Student;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Patterns;
@@ -13,6 +14,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.gpthane.R;
+import com.example.gpthane.Teacher.TeacherLogin;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -26,6 +28,7 @@ public class StudentLogin extends AppCompatActivity {
     private TextView tvStudentRegister;
     private Button btnStudentLogin;
     private FirebaseAuth auth;
+    ProgressDialog progressDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,6 +54,12 @@ public class StudentLogin extends AppCompatActivity {
         btnStudentLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                progressDialog = new ProgressDialog(StudentLogin.this);
+                progressDialog.show();
+                progressDialog.setContentView(R.layout.progressbar);
+                progressDialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+
                 String email = etStudentEmail.getText().toString();
                 String password = etStudentPassword.getText().toString();
 
@@ -79,6 +88,9 @@ public class StudentLogin extends AppCompatActivity {
                         @Override
                         public void onComplete(@NonNull @NotNull Task<AuthResult> task) {
                             if(task.isSuccessful()){
+
+                                progressDialog.dismiss();
+
                                 Toast.makeText(StudentLogin.this, "Login Successful!", Toast.LENGTH_SHORT).show();
                                 startActivity(new Intent(getApplicationContext(), StudentActivity.class));
                             }
