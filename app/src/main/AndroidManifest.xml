@@ -11,7 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light">
-        <activity android:name=".Student.Drawer.Contact"></activity>
+        <activity android:name=".Student.StudentNotice"></activity>
+        <activity android:name=".Student.Drawer.Contact" />
         <activity android:name=".Student.Drawer.About" />
         <activity android:name=".Teacher.TeacherUploadNotice" />
         <activity android:name=".Student.StudentActivity" />

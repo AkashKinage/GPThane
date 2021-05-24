@@ -1,6 +1,7 @@
 package com.example.gpthane.Student;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
@@ -10,6 +11,9 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
+import android.widget.Toast;
 
 import com.example.gpthane.R;
 import com.example.gpthane.Student.Drawer.About;
@@ -17,17 +21,48 @@ import com.example.gpthane.Student.Drawer.Contact;
 
 public class StudentActivity extends AppCompatActivity {
 
+    private CardView cvStudentNotice;
     DrawerLayout drawerLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        //Removing ActionBar
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        getSupportActionBar().hide();
         setContentView(R.layout.activity_student);
 
+
         drawerLayout = findViewById(R.id.drawer_layout);
+
+        cvStudentNotice = findViewById(R.id.cvStudentNotice);
+
+        //cvStudentNotice.setOnClickListener(this);
+
+        cvStudentNotice.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(), StudentNotice.class));
+            }
+        });
+
+
     }
 
-    public void ClickMenu(View view){
+   /*@Override
+    public void onClick(View view){
+        switch (view.getId()){
+            case R.id.cvStudentNotice:
+                Intent intent = new Intent(StudentActivity.this, StudentNotice.class);
+                //Intent intent = new Intent(view.getContext(),StudentNotice.class);
+                //startActivity(intent);
+                startActivity(new Intent(getApplicationContext(),StudentNotice.class));
+                break;
+        }
+    }*/
+
+    public void ClickMenu(View view) {
         openDrawer(drawerLayout);
     }
 
@@ -35,29 +70,29 @@ public class StudentActivity extends AppCompatActivity {
         drawerLayout.openDrawer(GravityCompat.START);
     }
 
-    public void ClickLogo(View view){
+    public void ClickLogo(View view) {
         closeDrawer(drawerLayout);
     }
 
     public static void closeDrawer(DrawerLayout drawerLayout) {
-        if(drawerLayout.isDrawerOpen(GravityCompat.START)){
+        if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
             drawerLayout.closeDrawer(GravityCompat.START);
         }
     }
 
-    public void ClickHome(View view){
+    public void ClickHome(View view) {
         recreate();
     }
 
-    public void ClickContactUs(View view){
+    public void ClickContactUs(View view) {
         redirectActivity(this, Contact.class);
     }
 
-    public void ClickAboutUs(View view){
+    public void ClickAboutUs(View view) {
         redirectActivity(this, About.class);
     }
 
-    public void ClickLogout(View view){
+    public void ClickLogout(View view) {
         logout(this);
     }
 
@@ -85,7 +120,7 @@ public class StudentActivity extends AppCompatActivity {
     }
 
     public static void redirectActivity(Activity activity, Class aClass) {
-        Intent intent = new Intent(activity,aClass);
+        Intent intent = new Intent(activity, aClass);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         activity.startActivity(intent);
     }
@@ -95,4 +130,5 @@ public class StudentActivity extends AppCompatActivity {
         super.onPause();
         closeDrawer(drawerLayout);
     }
+
 }
