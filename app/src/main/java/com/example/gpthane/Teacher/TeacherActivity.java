@@ -34,7 +34,7 @@ public class TeacherActivity extends AppCompatActivity implements View.OnClickLi
                 break;
 
             case R.id.cvUploadPdf:
-                intent = new Intent(TeacherActivity.this, UploadPDFActivity.class);
+                intent = new Intent(TeacherActivity.this, UploadPDFActivity1.class);
                 startActivity(intent);
                 break;
         }

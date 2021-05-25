@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     android:background="@drawable/background"
     tools:context=".Teacher.TeacherActivity">
 
@@ -15,11 +16,14 @@
         android:text="Teacher Dashboard"
         android:textStyle="bold"
         android:textSize="30sp"
-        android:layout_marginTop="12dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="50dp"
+        android:layout_marginBottom="85dp"
+
         />
     <GridLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="400dp"
         android:layout_below="@id/title_view"
         android:rowCount="3"
         android:columnCount="2"
@@ -144,4 +148,4 @@
 
     </GridLayout>
 
-</RelativeLayout>
+</LinearLayout>

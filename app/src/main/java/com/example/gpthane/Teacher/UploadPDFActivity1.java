@@ -26,7 +26,7 @@ import com.google.firebase.storage.UploadTask;
 
 import org.jetbrains.annotations.NotNull;
 
-public class UploadPDFActivity extends AppCompatActivity {
+public class UploadPDFActivity1 extends AppCompatActivity {
 
     EditText editPDFName;
     Button btn_upload;
@@ -38,7 +38,7 @@ public class UploadPDFActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_upload_pdfactivity);
+        setContentView(R.layout.activity_upload_pdfactivity1);
 
         editPDFName = findViewById(R.id.txt_pdfName);
         btn_upload = findViewById(R.id.btn_upload);
@@ -90,7 +90,7 @@ public class UploadPDFActivity extends AppCompatActivity {
 
                         uploadPDF uploadPDF = new uploadPDF(editPDFName.getText().toString(), url.toString());
                         databaseReference.child(databaseReference.push().getKey()).setValue(uploadPDF);
-                        Toast.makeText(UploadPDFActivity.this, "File Uploaded", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(UploadPDFActivity1.this, "File Uploaded", Toast.LENGTH_SHORT).show();
                         progressDialog.dismiss();
                     }
                 }).addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {

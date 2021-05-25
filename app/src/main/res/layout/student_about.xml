@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Student.Drawer.About">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_margin="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="About Us"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            style=""
+            android:gravity="center_horizontal"/>
+
+        <androidx.cardview.widget.CardView
+            android:layout_margin="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:elevation="5dp"
+            app:cardBackgroundColor="@color/white"
+            app:cardCornerRadius="10dp"
+            app:cardElevation="10dp">
+
+                <com.denzcoskun.imageslider.ImageSlider
+                    android:id="@+id/imgslider"
+                    android:layout_width="match_parent"
+                    app:iss_auto_cycle="true"
+                    app:iss_delay="0"
+                    app:iss_period="1000"
+                    app:iss_corner_radius="5"
+                    android:layout_height="220dp"/>
+
+        </androidx.cardview.widget.CardView>
+
+
+
+        <androidx.cardview.widget.CardView
+            android:layout_margin="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:elevation="5dp"
+            app:cardBackgroundColor="@color/white"
+            app:cardCornerRadius="10dp"
+            app:cardElevation="10dp">
+
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:text="Government Polytechnic Thane is one of the oldest polytechnic established in Mumbai region in 1985. The institute belongs to Government of Maharashtra &amp; under the governance of the Director of Technical Education (M.S) Mumbai. The institute is affiliated to Maharashtra State Board of Technical Education (MSBTE).\nThe Institue is a co-education institute responsible for imparting industry-responsive Diploma level programs in the field of engineering,technology &amp; professional education to the students admitted as per norms stipulated by Government of Maharashtra.
+\nThe institute is much closer to the industrial area within the developing community. The notable industries located within 10 kms belt around Thane.
+\nWell established infrastructure facilities are key factors for positive performances. The faculty members are well qualified, experienced &amp; well trained under NITTTR courses, I.S.T.E. courses &amp; other personality development courses. Faculty members are capable of conducting continuing educational programmes for the industries and the other organizations."
+                android:textSize="18sp" />
+
+        </androidx.cardview.widget.CardView>
+
+    </LinearLayout>
+
+</ScrollView>

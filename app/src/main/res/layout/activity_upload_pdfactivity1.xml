@@ -7,7 +7,7 @@
     android:orientation="vertical"
     android:padding="30dp"
     android:gravity="center"
-    tools:context=".Teacher.UploadPDFActivity">
+    tools:context=".Teacher.UploadPDFActivity1">
 
 
     <EditText
