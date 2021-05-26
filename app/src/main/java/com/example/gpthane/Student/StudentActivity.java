@@ -15,6 +15,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Toast;
 
+import com.example.gpthane.MainActivity;
 import com.example.gpthane.R;
 import com.example.gpthane.Student.Drawer.About;
 import com.example.gpthane.Student.Drawer.Contact;
@@ -113,6 +114,7 @@ public class StudentActivity extends AppCompatActivity {
             public void onClick(DialogInterface dialog, int which) {
                 activity.finishAffinity();
                 System.exit(0);
+//                activity.startActivity(new Intent(getApplicationContext(), MainActivity.class));
             }
         });
 

@@ -23,18 +23,18 @@
         android:src="@drawable/gpt_logo"/>
 
     <TextView
-        android:layout_height="wrap_content"
         android:layout_width="wrap_content"
-        android:textStyle="bold"
-        android:textSize="20dp"
+        android:layout_height="wrap_content"
+        android:text="You are a"
         android:textColor="#0d6e6a"
-        android:text="Are you a?"/>
+        android:textSize="20dp"
+        android:textStyle="bold" />
 
     <Button
         android:id="@+id/btnTeacher"
         android:layout_width="350dp"
         android:layout_height="50dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="20dp"
         android:background="@drawable/button"
         android:text="Teacher"
         android:textColor="#FFF"

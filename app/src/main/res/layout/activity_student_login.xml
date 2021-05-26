@@ -81,16 +81,16 @@
         android:layout_marginTop="20dp"
         android:background="@drawable/forget"/>
 
-    <TextView
-        android:layout_height="wrap_content"
-        android:layout_width="wrap_content"
-        android:textStyle="bold"
-        android:textSize="18dp"
-        android:textColor="#0d6e6a"
-        android:text="Forget Password?"
-        android:layout_marginTop="10dp"
-        android:layout_marginRight="35dp"
-        android:layout_gravity="end"/>
+<!--    <TextView-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:textStyle="bold"-->
+<!--        android:textSize="18dp"-->
+<!--        android:textColor="#0d6e6a"-->
+<!--        android:text="Forget Password?"-->
+<!--        android:layout_marginTop="10dp"-->
+<!--        android:layout_marginRight="35dp"-->
+<!--        android:layout_gravity="end"/>-->
 
     <Button
         android:id="@+id/btnStudentLogin"
@@ -100,7 +100,7 @@
         android:textSize="18dp"
         android:textColor="#FFF"
         android:text="Login"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="40dp"
         android:background="@drawable/button"/>
 
     <TextView

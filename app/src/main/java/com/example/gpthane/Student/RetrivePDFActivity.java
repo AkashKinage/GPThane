@@ -50,8 +50,8 @@ public class RetrivePDFActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 uploadPDF uploadPDF = uploadPDFS.get(position);
 
-                Intent intent = new Intent();
-                intent.setType(Intent.ACTION_VIEW);
+                Intent intent = new Intent(Intent.ACTION_VIEW);
+                intent.setType("application/pdf");
                 intent.setData(Uri.parse(uploadPDF.getUrl()));
                 startActivity(intent);
 
@@ -63,7 +63,7 @@ public class RetrivePDFActivity extends AppCompatActivity {
         databaseReference = FirebaseDatabase.getInstance().getReference("uploads");
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
-            public void onDataChange(@NonNull @NotNull DataSnapshot snapshot) {
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
 
                 for (DataSnapshot postSnapshot: snapshot.getChildren()){
                     uploadPDF uploadPDF = postSnapshot.getValue(com.example.gpthane.Teacher.uploadPDF.class);
@@ -77,10 +77,11 @@ public class RetrivePDFActivity extends AppCompatActivity {
 
                 ArrayAdapter<String> adapter = new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_list_item_1, uploads){
 
+                    @NonNull
                     @Override
-                    public View getView(int position, View convertView, ViewGroup parent) {
+                    public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
                         View view = super.getView(position, convertView, parent);
-                        TextView myText = view.findViewById(android.R.id.text1);
+                        TextView myText = (TextView) view.findViewById(android.R.id.text1);
                         myText.setTextColor(Color.BLACK);
 
                         return view;
@@ -91,7 +92,7 @@ public class RetrivePDFActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onCancelled(@NonNull @NotNull DatabaseError error) {
+            public void onCancelled(@NonNull DatabaseError error) {
 
             }
         });

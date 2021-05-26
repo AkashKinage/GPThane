@@ -18,7 +18,7 @@
         android:textSize="30sp"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="50dp"
-        android:layout_marginBottom="85dp"
+        android:layout_marginBottom="120dp"
         />
     <GridLayout
         android:layout_width="match_parent"
@@ -48,10 +48,17 @@
                 android:gravity="center"
                 android:orientation="vertical">
 
+                <ImageView
+                    android:layout_width="70dp"
+                    android:layout_height="60dp"
+                    android:background="@drawable/imgicon"/>
+
                 <TextView
+                    android:layout_marginTop="10dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Notice"
+                    android:textSize="16sp"
                     android:textAlignment="center"
                     android:textStyle="bold" />
             </LinearLayout>
@@ -78,10 +85,17 @@
                 android:gravity="center"
                 android:layout_gravity="center_vertical|center_horizontal">
 
+                <ImageView
+                    android:layout_width="70dp"
+                    android:layout_height="60dp"
+                    android:background="@drawable/pdficon"/>
+
                 <TextView
+                    android:layout_marginTop="10dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="PDF"
+                    android:textSize="16sp"
                     android:textStyle="bold"
                     android:textAlignment="center"/>
             </LinearLayout>
@@ -107,10 +121,17 @@
                 android:gravity="center"
                 android:layout_gravity="center_vertical|center_horizontal">
 
+                <ImageView
+                    android:layout_width="65dp"
+                    android:layout_height="60dp"
+                    android:background="@drawable/videoicon"/>
+
                 <TextView
+                    android:layout_marginTop="10dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Video Lectures"
+                    android:textSize="16sp"
                     android:textStyle="bold"
                     android:textAlignment="center"/>
             </LinearLayout>
@@ -120,28 +141,35 @@
             android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:layout_row="1"
-            android:layout_column="1"
-            android:layout_gravity="fill"
             android:layout_rowWeight="1"
+            android:layout_column="1"
             android:layout_columnWeight="1"
+            android:layout_gravity="fill"
             android:layout_margin="8dp"
             app:cardCornerRadius="8dp"
-            app:cardElevation="8dp"
-            >
+            app:cardElevation="8dp">
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
+                android:layout_gravity="center_vertical|center_horizontal"
                 android:gravity="center"
-                android:layout_gravity="center_vertical|center_horizontal">
+                android:orientation="vertical">
+
+
+                <ImageView
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:background="@drawable/peopleicon"/>
 
                 <TextView
+                    android:layout_marginTop="10dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Faculty"
-                    android:textStyle="bold"
-                    android:textAlignment="center"/>
+                    android:textSize="16sp"
+                    android:textAlignment="center"
+                    android:textStyle="bold" />
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 

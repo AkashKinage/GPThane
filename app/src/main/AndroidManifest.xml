@@ -3,7 +3,7 @@
     package="com.example.gpthane">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -12,7 +12,10 @@
         android:roundIcon="@drawable/gpt_logo"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light">
-        <activity android:name=".Teacher.UploadPDFActivity1"></activity>
+        <activity android:name=".Teacher.DisplayStudents"></activity>
+        <activity android:name=".Teacher.StudentDisplay1" />
+        <activity android:name=".Teacher.StudentsDisplay" />
+        <activity android:name=".Teacher.UploadPDFActivity1" />
         <activity android:name=".Student.RetrivePDFActivity" />
         <activity android:name=".Student.StudentNotice" />
         <activity android:name=".Student.Drawer.Contact" />
