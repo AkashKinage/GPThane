@@ -7,6 +7,9 @@
     android:orientation="vertical"
     tools:context=".Teacher.DisplayStudents">
 
+    <include
+        layout="@layout/action_bar"/>
+
     <Spinner
         android:padding="10dp"
         android:layout_margin="10dp"

@@ -8,6 +8,9 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
 
+    <include
+        layout="@layout/action_bar"/>
+
     <TextView
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"

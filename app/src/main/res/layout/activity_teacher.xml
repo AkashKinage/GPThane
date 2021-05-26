@@ -8,6 +8,9 @@
     android:background="@drawable/background"
     tools:context=".Teacher.TeacherActivity">
 
+    <include
+        layout="@layout/action_bar"/>
+
     <TextView
         android:id="@+id/title_view"
         android:layout_width="wrap_content"

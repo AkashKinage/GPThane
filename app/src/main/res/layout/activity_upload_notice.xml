@@ -6,6 +6,9 @@
     android:layout_height="match_parent"
     tools:context=".Teacher.TeacherUploadNotice">
 
+    <include
+        layout="@layout/action_bar"/>
+
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="match_parent"
@@ -14,6 +17,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="60dp"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0" />
 

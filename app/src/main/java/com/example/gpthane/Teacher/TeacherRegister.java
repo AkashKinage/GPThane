@@ -9,6 +9,8 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Patterns;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
@@ -37,6 +39,10 @@ public class TeacherRegister extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        //Removing ActionBar
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        getSupportActionBar().hide();
         setContentView(R.layout.activity_teacher_register);
 
         etTeacherName = findViewById(R.id.etTeacherName);
@@ -153,6 +159,7 @@ public class TeacherRegister extends AppCompatActivity {
                             });
                 }
                 else{
+                    progressDialog.dismiss();
                     Toast.makeText(TeacherRegister.this, "Please Enter Correct Unique ID", Toast.LENGTH_SHORT).show();
                 }
             }

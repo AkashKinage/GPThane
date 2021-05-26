@@ -7,6 +7,9 @@
     android:orientation="vertical"
     tools:context=".Student.StudentNotice">
 
+    <include
+        layout="@layout/action_bar"/>
+
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="match_parent"

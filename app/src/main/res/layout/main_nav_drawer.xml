@@ -2,30 +2,33 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="#0d6e6a">
 
     <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="120dp"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
         android:layout_margin="16dp"
         android:onClick="ClickLogo"
-        android:src="@drawable/ic_account"/>
+        android:layout_gravity="center"
+        android:background="@color/white"
+        android:src="@drawable/gpt_logo"/>
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="GP Thane"
+        android:text="GPThane"
         android:textSize="20sp"
         android:textStyle="bold"
         android:textAlignment="center"
-        android:textColor="#636363"/>
+        android:textColor="#FFFFFF"/>
 
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:layout_marginTop="16dp"
         android:layout_marginBottom="16dp"
-        android:background="#636363"/>
+        android:background="#FFFFFF"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -40,6 +43,7 @@
             android:layout_weight="1"
             android:text="Home"
             android:padding="12dp"
+            android:textColor="@color/white"
             android:layout_marginStart="16dp"/>
 
         <ImageView
@@ -62,6 +66,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Contact Us"
+            android:textColor="@color/white"
             android:padding="12dp"
             android:layout_marginStart="16dp"/>
 
@@ -85,6 +90,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="About Us"
+            android:textColor="@color/white"
             android:padding="12dp"
             android:layout_marginStart="16dp"/>
 
@@ -108,6 +114,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Logout"
+            android:textColor="@color/white"
             android:padding="12dp"
             android:layout_marginStart="16dp"/>
 
