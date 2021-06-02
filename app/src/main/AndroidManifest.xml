@@ -12,8 +12,9 @@
         android:roundIcon="@drawable/gpt_logo"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light">
-        <activity android:name=".Teacher.DisplayStudents"></activity>
-        <activity android:name=".Teacher.StudentDisplay1" />
+        <activity android:name=".Student.VideoLectures"></activity>
+        <activity android:name=".Teacher.DisplayStudents" />
+<!--        <activity android:name=".Teacher.StudentDisplay1" />-->
         <activity android:name=".Teacher.StudentsDisplay" />
         <activity android:name=".Teacher.UploadPDFActivity1" />
         <activity android:name=".Student.RetrivePDFActivity" />

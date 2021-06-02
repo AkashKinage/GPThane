@@ -94,6 +94,7 @@ public class TeacherUploadNotice extends AppCompatActivity {
                     .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                         @Override
                         public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                            progressBar.setVisibility(View.GONE);
                             Task<Uri> urlTask = taskSnapshot.getStorage().getDownloadUrl();
                             while (!urlTask.isSuccessful());
                             Uri downloadUrl = urlTask.getResult();

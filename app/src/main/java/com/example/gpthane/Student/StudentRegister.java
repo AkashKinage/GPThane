@@ -10,10 +10,12 @@ import android.util.Patterns;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -36,6 +38,7 @@ public class StudentRegister extends AppCompatActivity {
     private FirebaseAuth auth;
     private String name, enrollmentno, phone, email, password;
     ProgressDialog progressDialog;
+    private Spinner spinnerStudentDepartment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,6 +66,11 @@ public class StudentRegister extends AppCompatActivity {
         rb3rdYear = findViewById(R.id.rb3rdYear);
 
         auth = FirebaseAuth.getInstance();
+
+        spinnerStudentDepartment = findViewById(R.id.spinnerStudentDepartment);
+        ArrayAdapter<CharSequence> adapter1 = ArrayAdapter.createFromResource(this, R.array.Department , android.R.layout.simple_spinner_item);
+        adapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinnerStudentDepartment.setAdapter(adapter1);
 
         tvStudentLogin.setOnClickListener(new View.OnClickListener() {
             @Override

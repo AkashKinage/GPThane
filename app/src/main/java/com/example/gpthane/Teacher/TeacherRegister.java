@@ -11,9 +11,11 @@ import android.util.Patterns;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -35,6 +37,7 @@ public class TeacherRegister extends AppCompatActivity {
     private String name, email, phone, enteredUniqueId, password;
     //private ProgressBar pd;
     ProgressDialog progressDialog;
+    private Spinner spinnerTeacherDepartment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,6 +59,11 @@ public class TeacherRegister extends AppCompatActivity {
         //pd = new ProgressBar(this);
 
         auth = FirebaseAuth.getInstance();
+
+        spinnerTeacherDepartment = findViewById(R.id.spinnerTeacherDepartment);
+        ArrayAdapter<CharSequence> adapter1 = ArrayAdapter.createFromResource(this, R.array.Department , android.R.layout.simple_spinner_item);
+        adapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinnerTeacherDepartment.setAdapter(adapter1);
 
         btnTeacherRegister = findViewById(R.id.btnTeacherRegister);
 

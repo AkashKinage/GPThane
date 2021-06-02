@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<LinearLayout
-    android:gravity="center_horizontal"
-    android:orientation="vertical"
-    android:layout_height="match_parent"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
 
     <include
         layout="@layout/action_bar"/>
@@ -120,6 +123,29 @@
         android:layout_marginTop="18dp"
         android:background="@drawable/forget"/>
 
+    <LinearLayout
+        android:layout_width="350dp"
+        android:layout_height="match_parent"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal"
+        android:paddingLeft="20dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="Department:"
+            android:textColor="#0d6e6a"
+            android:textSize="18dp"
+            android:textStyle="bold" />
+
+        <Spinner
+            android:id="@+id/spinnerStudentDepartment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp" />
+
+    </LinearLayout>
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -189,3 +215,4 @@
         android:layout_marginTop="15dp"/>
 
 </LinearLayout>
+</ScrollView>

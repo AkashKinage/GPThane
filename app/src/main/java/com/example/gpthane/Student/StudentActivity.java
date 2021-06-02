@@ -22,7 +22,7 @@ import com.example.gpthane.Student.Drawer.Contact;
 
 public class StudentActivity extends AppCompatActivity {
 
-    private CardView cvStudentNotice, cvRetrivePDFActivity;
+    private CardView cvStudentNotice, cvRetrivePDFActivity, cvVideoLectures;
     DrawerLayout drawerLayout;
 
     @Override
@@ -39,6 +39,7 @@ public class StudentActivity extends AppCompatActivity {
 
         cvStudentNotice = findViewById(R.id.cvStudentNotice);
         cvRetrivePDFActivity = findViewById(R.id.cvRetrivePDFActivity);
+        cvVideoLectures = findViewById(R.id.cvVideoLectures);
 
         //cvStudentNotice.setOnClickListener(this);
 
@@ -53,6 +54,13 @@ public class StudentActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getApplicationContext(), RetrivePDFActivity.class));
+            }
+        });
+
+        cvVideoLectures.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(), VideoLectures.class));
             }
         });
 
