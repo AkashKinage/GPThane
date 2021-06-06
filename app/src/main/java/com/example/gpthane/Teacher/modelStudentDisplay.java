@@ -2,17 +2,26 @@ package com.example.gpthane.Teacher;
 
 public class modelStudentDisplay {
 
-    String name, email, enrollmentno, phone;
+    String name, email, enrollmentno, phone, year;
 
     modelStudentDisplay(){
 
     }
 
-    public modelStudentDisplay(String name, String email, String enrollmentno, String phone) {
+    public modelStudentDisplay(String name, String email, String enrollmentno, String phone, String year) {
         this.name = name;
         this.email = email;
         this.enrollmentno = enrollmentno;
         this.phone = phone;
+        this.year = year;
+    }
+
+    public String getYear() {
+        return year;
+    }
+
+    public void setYear(String year) {
+        this.year = year;
     }
 
     public String getName() {

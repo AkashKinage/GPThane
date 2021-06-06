@@ -146,52 +146,75 @@
 
     </LinearLayout>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Select Year:"
-        android:layout_marginTop="18dp"
-        android:textStyle="bold"
-        android:textSize="18dp"
-        android:textColor="#0d6e6a"/>
+        <LinearLayout
+            android:layout_width="350dp"
+            android:layout_height="match_parent"
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal"
+            android:paddingLeft="20dp">
 
-    <RadioGroup
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:paddingLeft="20dp"
-        android:layout_marginTop="18dp"
-        android:orientation="horizontal"
-        android:id="@+id/radioGroup">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="Year:"
+                android:textColor="#0d6e6a"
+                android:textSize="18dp"
+                android:textStyle="bold" />
+
+            <Spinner
+                android:id="@+id/spinnerStudentYear"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp" />
+
+        </LinearLayout>
+
+<!--    <TextView-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="Select Year:"-->
+<!--        android:layout_marginTop="18dp"-->
+<!--        android:textStyle="bold"-->
+<!--        android:textSize="18dp"-->
+<!--        android:textColor="#0d6e6a"/>-->
+
+<!--    <RadioGroup-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:paddingLeft="20dp"-->
+<!--        android:layout_marginTop="18dp"-->
+<!--        android:orientation="horizontal"-->
+<!--        android:id="@+id/radioGroup">-->
 
 
-        <RadioButton
-            android:id="@+id/rb1stYear"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="1st Year"
-            android:textSize="16dp"
-            android:textStyle="bold"
-            android:textColor="#0d6e6a"/>
+<!--        <RadioButton-->
+<!--            android:id="@+id/rb1stYear"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="1st Year"-->
+<!--            android:textSize="16dp"-->
+<!--            android:textStyle="bold"-->
+<!--            android:textColor="#0d6e6a"/>-->
 
-        <RadioButton
-            android:id="@+id/rb2ndYear"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="2nd Year"
-            android:textSize="16dp"
-            android:textStyle="bold"
-            android:textColor="#0d6e6a"/>
+<!--        <RadioButton-->
+<!--            android:id="@+id/rb2ndYear"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="2nd Year"-->
+<!--            android:textSize="16dp"-->
+<!--            android:textStyle="bold"-->
+<!--            android:textColor="#0d6e6a"/>-->
 
-        <RadioButton
-            android:id="@+id/rb3rdYear"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="3rd Year"
-            android:textSize="16dp"
-            android:textStyle="bold"
-            android:textColor="#0d6e6a"/>
+<!--        <RadioButton-->
+<!--            android:id="@+id/rb3rdYear"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="3rd Year"-->
+<!--            android:textSize="16dp"-->
+<!--            android:textStyle="bold"-->
+<!--            android:textColor="#0d6e6a"/>-->
 
-    </RadioGroup>
+<!--    </RadioGroup>-->
 
     <Button
         android:id="@+id/btnStudentRegister"

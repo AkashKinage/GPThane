@@ -15,8 +15,7 @@
         <include
             layout="@layout/main_toolbar"/>
 
-        <include
-            layout="@layout/studentdashboard"/>
+        <include layout="@layout/studentdashboard" />
 
         <TextView
             android:layout_width="match_parent"

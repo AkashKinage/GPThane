@@ -7,6 +7,7 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
 import android.view.Window;
@@ -34,7 +35,7 @@ public class TeacherRegister extends AppCompatActivity {
     private Button btnTeacherRegister;
     private TextView tvTeacherLogin;
     private FirebaseAuth auth;
-    private String name, email, phone, enteredUniqueId, password;
+    private String name, email, phone, enteredUniqueId, password, department, role = "teacher";
     //private ProgressBar pd;
     ProgressDialog progressDialog;
     private Spinner spinnerTeacherDepartment;
@@ -92,6 +93,9 @@ public class TeacherRegister extends AppCompatActivity {
                 phone = etTeacherPhoneNo.getText().toString();
                 password = etPassword.getText().toString();
                 enteredUniqueId = etTeacherUniqueId.getText().toString();
+                department = spinnerTeacherDepartment.getSelectedItem().toString();
+
+                Log.d("Department",department);
 
                 if(enteredUniqueId.equals("gpt456")) {
 
@@ -139,7 +143,9 @@ public class TeacherRegister extends AppCompatActivity {
                                         TeacherInfo teacherInfo = new TeacherInfo(
                                                 name,
                                                 email,
-                                                phone
+                                                phone,
+                                                department,
+                                                role
                                         );
 
                                         FirebaseDatabase.getInstance().getReference("Teachers")

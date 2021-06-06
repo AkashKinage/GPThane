@@ -10,6 +10,7 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -19,11 +20,19 @@ import com.example.gpthane.MainActivity;
 import com.example.gpthane.R;
 import com.example.gpthane.Student.Drawer.About;
 import com.example.gpthane.Student.Drawer.Contact;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class StudentActivity extends AppCompatActivity {
 
-    private CardView cvStudentNotice, cvRetrivePDFActivity, cvVideoLectures;
+    private CardView cvStudentNotice, cvRetrivePDFActivity, cvVideoLectures, cvFaculty, cvLogout;
     DrawerLayout drawerLayout;
+    FirebaseAuth auth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,12 +43,15 @@ public class StudentActivity extends AppCompatActivity {
         getSupportActionBar().hide();
         setContentView(R.layout.activity_student);
 
-
         drawerLayout = findViewById(R.id.drawer_layout);
 
         cvStudentNotice = findViewById(R.id.cvStudentNotice);
         cvRetrivePDFActivity = findViewById(R.id.cvRetrivePDFActivity);
         cvVideoLectures = findViewById(R.id.cvVideoLectures);
+        cvFaculty = findViewById(R.id.cvFaculty);
+        cvLogout = findViewById(R.id.cvLogout);
+
+        auth = FirebaseAuth.getInstance();
 
         //cvStudentNotice.setOnClickListener(this);
 
@@ -61,6 +73,22 @@ public class StudentActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getApplicationContext(), VideoLectures.class));
+            }
+        });
+
+        cvFaculty.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(), Faculty.class));
+            }
+        });
+
+        cvLogout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                auth.signOut();
+                startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                finish();
             }
         });
 

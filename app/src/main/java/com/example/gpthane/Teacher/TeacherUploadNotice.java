@@ -26,8 +26,13 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
@@ -44,13 +49,16 @@ public class TeacherUploadNotice extends AppCompatActivity {
     private Button btnChooseImage, btnUploadImage;
     private EditText etNoticeTitle;
     private ProgressBar progressBar;
-
+    private String emailstr;
     private Uri imageUri;
 
     private static final int PICK_IMAGE_REQUEST = 1;
 
+    FirebaseUser user;
+    FirebaseDatabase firebaseDatabase;
+
     private StorageReference storageReference;
-    private DatabaseReference databaseReference;
+    private DatabaseReference databaseReference, teacherRef;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,6 +78,12 @@ public class TeacherUploadNotice extends AppCompatActivity {
         storageReference = FirebaseStorage.getInstance().getReference("Notice Image");
         databaseReference = FirebaseDatabase.getInstance().getReference("Notice");
 
+        user = FirebaseAuth.getInstance().getCurrentUser();
+        emailstr = user.getEmail();
+
+        firebaseDatabase = FirebaseDatabase.getInstance();
+        teacherRef = firebaseDatabase.getReference("Teachers");
+
         btnChooseImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -87,33 +101,88 @@ public class TeacherUploadNotice extends AppCompatActivity {
     }
 
         private void UploadImage() {
-        if (imageUri != null){
-            StorageReference filereference = storageReference.child(System.currentTimeMillis() +"."+getFileExtension(imageUri));
+//        if (imageUri != null){
+//            StorageReference filereference = storageReference.child(System.currentTimeMillis() +"."+getFileExtension(imageUri));
+//
+//            filereference.putFile(imageUri)
+//                    .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+//                        @Override
+//                        public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+//                            progressBar.setVisibility(View.GONE);
+//                            Task<Uri> urlTask = taskSnapshot.getStorage().getDownloadUrl();
+//                            while (!urlTask.isSuccessful());
+//                            Uri downloadUrl = urlTask.getResult();
+//                            Toast.makeText(TeacherUploadNotice.this, "Upload Successful", Toast.LENGTH_SHORT).show();
+//                            UploadImg uploadImg = new UploadImg(etNoticeTitle.getText().toString().trim(),
+//                                    downloadUrl.toString());
+//                            String uploadId = databaseReference.push().getKey();
+//                            databaseReference.child(uploadId).setValue(uploadImg);
+//                        }
+//                    }).addOnFailureListener(new OnFailureListener() {
+//                        @Override
+//                        public void onFailure(@NonNull @NotNull Exception e) {
+//                            Toast.makeText(TeacherUploadNotice.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+//                        }
+//                    });
+//        }
+//        else {
+//            Toast.makeText(this, "No image selected", Toast.LENGTH_SHORT).show();
+//        }
 
-            filereference.putFile(imageUri)
-                    .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
-                        @Override
-                        public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                            progressBar.setVisibility(View.GONE);
-                            Task<Uri> urlTask = taskSnapshot.getStorage().getDownloadUrl();
-                            while (!urlTask.isSuccessful());
-                            Uri downloadUrl = urlTask.getResult();
-                            Toast.makeText(TeacherUploadNotice.this, "Upload Successful", Toast.LENGTH_SHORT).show();
-                            UploadImg uploadImg = new UploadImg(etNoticeTitle.getText().toString().trim(),
-                                    downloadUrl.toString());
-                            String uploadId = databaseReference.push().getKey();
-                            databaseReference.child(uploadId).setValue(uploadImg);
-                        }
-                    }).addOnFailureListener(new OnFailureListener() {
-                        @Override
-                        public void onFailure(@NonNull @NotNull Exception e) {
-                            Toast.makeText(TeacherUploadNotice.this, e.getMessage(), Toast.LENGTH_SHORT).show();
-                        }
-                    });
-        }
-        else {
-            Toast.makeText(this, "No image selected", Toast.LENGTH_SHORT).show();
-        }
+
+
+            if (imageUri != null){
+                StorageReference filereference = storageReference.child(System.currentTimeMillis() +"."+getFileExtension(imageUri));
+
+                filereference.putFile(imageUri)
+                        .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                            @Override
+                            public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                                progressBar.setVisibility(View.GONE);
+                                Task<Uri> urlTask = taskSnapshot.getStorage().getDownloadUrl();
+                                while (!urlTask.isSuccessful());
+                                Uri downloadUrl = urlTask.getResult();
+                                Toast.makeText(TeacherUploadNotice.this, "Upload Successful", Toast.LENGTH_SHORT).show();
+
+                                teacherRef.addValueEventListener(new ValueEventListener() {
+                                    @Override
+                                    public void onDataChange(@NonNull @NotNull DataSnapshot snapshot) {
+                                        for (DataSnapshot ds : snapshot.getChildren()){
+                                            Log.d("ds",ds.child("department").toString());
+                                            String email = (String) ds.child("email").getValue();
+                                            if(email.equals(emailstr)){
+                                                Log.d("result","success");
+                                                Log.d("result",ds.child("department").getValue().toString());
+                                                String department = ds.child("department").getValue().toString();
+                                                Log.d("department",department);
+
+                                                UploadImg uploadImg = new UploadImg(etNoticeTitle.getText().toString().trim(),
+                                                        downloadUrl.toString());
+                                                String uploadId = databaseReference.push().getKey();
+                                                databaseReference.child(department).child(uploadId).setValue(uploadImg);
+                                            }
+
+                                        }
+                                    }
+
+                                    @Override
+                                    public void onCancelled(@NonNull @NotNull DatabaseError error) {
+
+                                    }
+                                });
+
+
+                            }
+                        }).addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull @NotNull Exception e) {
+                        Toast.makeText(TeacherUploadNotice.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                });
+            }
+            else {
+                Toast.makeText(this, "No image selected", Toast.LENGTH_SHORT).show();
+            }
     }
 
     private void ChooseImage() {

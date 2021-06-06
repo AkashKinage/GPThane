@@ -14,15 +14,16 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:text="Student Dashboard"
+        android:textColor="@color/white"
         android:textStyle="bold"
         android:textSize="30sp"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="50dp"
-        android:layout_marginBottom="120dp"
+        android:layout_marginBottom="10dp"
         />
     <GridLayout
         android:layout_width="match_parent"
-        android:layout_height="400dp"
+        android:layout_height="500dp"
         android:layout_below="@id/title_view"
         android:rowCount="3"
         android:columnCount="2"
@@ -51,14 +52,14 @@
                 <ImageView
                     android:layout_width="70dp"
                     android:layout_height="60dp"
-                    android:background="@drawable/imgicon"/>
+                    android:background="@drawable/notice512"/>
 
                 <TextView
                     android:layout_marginTop="10dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Notice"
-                    android:textSize="16sp"
+                    android:textSize="18sp"
                     android:textAlignment="center"
                     android:textStyle="bold" />
             </LinearLayout>
@@ -86,16 +87,16 @@
                 android:layout_gravity="center_vertical|center_horizontal">
 
                 <ImageView
-                    android:layout_width="70dp"
+                    android:layout_width="60dp"
                     android:layout_height="60dp"
-                    android:background="@drawable/pdficon"/>
+                    android:background="@drawable/pdf"/>
 
                 <TextView
                     android:layout_marginTop="10dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="PDF"
-                    android:textSize="16sp"
+                    android:textSize="18sp"
                     android:textStyle="bold"
                     android:textAlignment="center"/>
             </LinearLayout>
@@ -125,20 +126,21 @@
                 <ImageView
                     android:layout_width="65dp"
                     android:layout_height="60dp"
-                    android:background="@drawable/videoicon"/>
+                    android:background="@drawable/videolectureicon"/>
 
                 <TextView
                     android:layout_marginTop="10dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Video Lectures"
-                    android:textSize="16sp"
+                    android:textSize="18sp"
                     android:textStyle="bold"
                     android:textAlignment="center"/>
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
+            android:id="@+id/cvFaculty"
             android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:layout_row="1"
@@ -161,19 +163,55 @@
                 <ImageView
                     android:layout_width="60dp"
                     android:layout_height="60dp"
-                    android:background="@drawable/peopleicon"/>
+                    android:background="@drawable/faculty" />
 
                 <TextView
-                    android:layout_marginTop="10dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
                     android:text="Faculty"
-                    android:textSize="16sp"
                     android:textAlignment="center"
+                    android:textSize="18sp"
                     android:textStyle="bold" />
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cvLogout"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_row="2"
+            android:layout_rowWeight="1"
+            android:layout_column="0"
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill"
+            android:layout_margin="8dp"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="8dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical|center_horizontal"
+                android:gravity="center"
+                android:orientation="vertical">
+
+
+                <ImageView
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:background="@drawable/logout" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="Logout"
+                    android:textAlignment="center"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
 
     </GridLayout>
 

@@ -1,134 +1,90 @@
 <?xml version="1.0" encoding="utf-8"?>
+
+
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    app:cardCornerRadius="10dp"
-    app:cardElevation="3dp"
-    app:cardUseCompatPadding="true"
-    android:layout_margin="10dp"
-    app:contentPadding="5dp">
+    android:layout_marginTop="20dp"
+    android:layout_margin="20dp"
+    android:padding="20dp"
+    app:cardCornerRadius="15dp">
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="5dp"
-        android:layout_margin="5dp">
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
+        android:layout_height="match_parent"
+        android:background="#5394f5"
+        android:padding="10dp">
 
         <TextView
+            android:id="@+id/studName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Name:"
-            android:textSize="18sp"
-            android:layout_marginBottom="10dp" />
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="5dp"
+            android:text="Name"
+            android:textColor="#ffff"
+            android:textSize="26sp"
+            android:textStyle="bold" />
 
-            <TextView
-                android:id="@+id/studName"
-                android:layout_marginLeft="10dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Name"
-                android:textSize="18sp"
-                android:layout_marginBottom="10dp" />
-
-        </LinearLayout>
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="2dp"
-            android:background="@color/black"/>
-
-        <LinearLayout
+        <TextView
+            android:id="@+id/studEnrollment"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:layout_below="@+id/studName"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="3dp"
+            android:text="Enrollment"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:textStyle="bold" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Enrollment Number:"
-                android:textSize="18sp"
-                android:layout_marginBottom="10dp" />
-
-            <TextView
-                android:id="@+id/studEnrollment"
-                android:layout_marginLeft="10dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="EnrollmentNo"
-                android:textSize="18sp"
-                android:layout_marginBottom="10dp" />
-
-        </LinearLayout>
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="2dp"
-            android:background="@color/black"/>
-
-        <LinearLayout
+        <TextView
+            android:id="@+id/studEmail"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:layout_below="@+id/studEnrollment"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="3dp"
+            android:text="Email"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:textStyle="bold" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Email:"
-                android:textSize="18sp"
-                android:layout_marginBottom="10dp" />
-
-            <TextView
-                android:id="@+id/studEmail"
-                android:layout_marginLeft="10dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Email"
-                android:textSize="18sp"
-                android:layout_marginBottom="10dp" />
-
-        </LinearLayout>
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="2dp"
-            android:background="@color/black"/>
-
-        <LinearLayout
+        <TextView
+            android:id="@+id/studPhone"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:layout_below="@id/studEmail"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="3dp"
+            android:text="Phone no"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:textStyle="bold" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Phone Number:"
-                android:textSize="18sp"
-                android:layout_marginBottom="10dp" />
+        <TextView
+            android:id="@+id/studYear"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/studPhone"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="3dp"
+            android:text="Year"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:textStyle="bold" />
 
-            <TextView
-                android:id="@+id/studPhone"
-                android:layout_marginLeft="10dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Phone"
-                android:textSize="18sp"
-                android:layout_marginBottom="10dp" />
+        <ImageView
+            android:layout_width="120dp"
+            android:layout_height="140dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="20dp"
+            android:maxHeight="100dp"
+            android:src="@drawable/studenticon" />
 
-        </LinearLayout>
+    </RelativeLayout>
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="2dp"
-            android:background="@color/black"/>
-
-
-    </LinearLayout>
 
 </androidx.cardview.widget.CardView>

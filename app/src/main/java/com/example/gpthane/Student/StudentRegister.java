@@ -33,19 +33,19 @@ public class StudentRegister extends AppCompatActivity {
     private EditText etStudentName, etStudentEnrollmentNo, etStudentPhoneNo, etStudentEmail, etStudentPassword;
     private Button btnStudentRegister;
     private TextView tvStudentLogin;
-    private RadioButton rb1stYear, rb2ndYear, rb3rdYear;
+    //    private RadioButton rb1stYear, rb2ndYear, rb3rdYear;
     private RadioGroup radioGroup;
     private FirebaseAuth auth;
-    private String name, enrollmentno, phone, email, password;
+    private String name, enrollmentno, phone, email, password, department, year, role = "student";
     ProgressDialog progressDialog;
-    private Spinner spinnerStudentDepartment;
+    private Spinner spinnerStudentDepartment, spinnerStudentYear;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //Removing ActionBar
         requestWindowFeature(Window.FEATURE_NO_TITLE);
-        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         getSupportActionBar().hide();
         setContentView(R.layout.activity_student_register);
 
@@ -59,18 +59,23 @@ public class StudentRegister extends AppCompatActivity {
 
         tvStudentLogin = findViewById(R.id.tvStudentLogin);
 
-        radioGroup = findViewById(R.id.radioGroup);
-
-        rb1stYear = findViewById(R.id.rb1stYear);
-        rb2ndYear = findViewById(R.id.rb2ndYear);
-        rb3rdYear = findViewById(R.id.rb3rdYear);
+//        radioGroup = findViewById(R.id.radioGroup);
+//
+//        rb1stYear = findViewById(R.id.rb1stYear);
+//        rb2ndYear = findViewById(R.id.rb2ndYear);
+//        rb3rdYear = findViewById(R.id.rb3rdYear);
 
         auth = FirebaseAuth.getInstance();
 
         spinnerStudentDepartment = findViewById(R.id.spinnerStudentDepartment);
-        ArrayAdapter<CharSequence> adapter1 = ArrayAdapter.createFromResource(this, R.array.Department , android.R.layout.simple_spinner_item);
+        ArrayAdapter<CharSequence> adapter1 = ArrayAdapter.createFromResource(this, R.array.Department, android.R.layout.simple_spinner_item);
         adapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerStudentDepartment.setAdapter(adapter1);
+
+        spinnerStudentYear = findViewById(R.id.spinnerStudentYear);
+        ArrayAdapter<CharSequence> adapter2 = ArrayAdapter.createFromResource(this, R.array.Year, android.R.layout.simple_spinner_item);
+        adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinnerStudentYear.setAdapter(adapter2);
 
         tvStudentLogin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -93,53 +98,55 @@ public class StudentRegister extends AppCompatActivity {
                 phone = etStudentPhoneNo.getText().toString();
                 email = etStudentEmail.getText().toString();
                 password = etStudentPassword.getText().toString();
+                department = spinnerStudentDepartment.getSelectedItem().toString();
+                year = spinnerStudentYear.getSelectedItem().toString();
 
-                if(name.isEmpty()){
+                if (name.isEmpty()) {
                     etStudentName.setError("Please Enter Name");
                     etStudentName.requestFocus();
                     return;
                 }
 
-                if(enrollmentno.isEmpty()){
+                if (enrollmentno.isEmpty()) {
                     etStudentEnrollmentNo.setError("Please Enter your Enrollment Number");
                     etStudentEnrollmentNo.requestFocus();
                     return;
                 }
 
-                if(enrollmentno.length()<10){
+                if (enrollmentno.length() < 10) {
                     etStudentEnrollmentNo.setError("Please Enter valid Enrollment Number");
                     etStudentEnrollmentNo.requestFocus();
                     return;
                 }
 
-                if(phone.isEmpty()){
+                if (phone.isEmpty()) {
                     etStudentPhoneNo.setError("Please Enter Phone Number");
                     etStudentPhoneNo.requestFocus();
                     return;
                 }
 
-                if(phone.length() < 10){
+                if (phone.length() < 10) {
                     etStudentPhoneNo.setError("Please enter a valid Phone Number");
                     etStudentPhoneNo.requestFocus();
                     return;
                 }
 
-                if(email.isEmpty()){
+                if (email.isEmpty()) {
                     etStudentEmail.setError("Email is Empty");
                     etStudentEmail.requestFocus();
                     return;
                 }
-                if(!Patterns.EMAIL_ADDRESS.matcher(email).matches()){
+                if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
                     etStudentEmail.setError("Email is Invalid");
                     etStudentEmail.requestFocus();
                     return;
                 }
-                if(password.isEmpty()){
+                if (password.isEmpty()) {
                     etStudentPassword.setError("Password is Empty");
                     etStudentPassword.requestFocus();
                     return;
                 }
-                if(password.length() < 6){
+                if (password.length() < 6) {
                     etStudentPassword.setError("Password must be 6 or more characters");
                     etStudentPassword.requestFocus();
                     return;
@@ -149,70 +156,88 @@ public class StudentRegister extends AppCompatActivity {
                         .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                             @Override
                             public void onComplete(@NonNull @NotNull Task<AuthResult> task) {
-                                if(task.isSuccessful()){
+                                if (task.isSuccessful()) {
                                     progressDialog.dismiss();
                                     StudentInfo studentInfo = new StudentInfo(
-                                        name,
-                                        enrollmentno,
-                                        phone,
-                                        email
+                                            name,
+                                            enrollmentno,
+                                            phone,
+                                            email,
+                                            department,
+                                            year,
+                                            role
                                     );
 
-                                    if(rb1stYear.isChecked()){
-                                        FirebaseDatabase.getInstance().getReference("Students")
-                                                .child("1st Year")
-                                                .child(name)
-                                                .setValue(studentInfo).addOnCompleteListener(new OnCompleteListener<Void>() {
-                                            @Override
-                                            public void onComplete(@NonNull @NotNull Task<Void> task) {
-                                                if(task.isSuccessful()){
-                                                    Toast.makeText(StudentRegister.this, "Registration Successful!", Toast.LENGTH_SHORT).show();
-                                                    startActivity(new Intent(getApplicationContext(), StudentActivity.class));
-                                                }
-                                                else{
-                                                    Toast.makeText(StudentRegister.this, "Registration Unsuccessful!", Toast.LENGTH_SHORT).show();
-                                                }
+                                    FirebaseDatabase.getInstance().getReference("Students")
+                                            .child(name)
+                                            .setValue(studentInfo).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                        @Override
+                                        public void onComplete(@NonNull @NotNull Task<Void> task) {
+                                            if (task.isSuccessful()) {
+                                                Toast.makeText(StudentRegister.this, "Registration Successful!", Toast.LENGTH_SHORT).show();
+                                                startActivity(new Intent(getApplicationContext(), StudentActivity.class));
+                                            } else {
+                                                Toast.makeText(StudentRegister.this, "Registration Unsuccessful!", Toast.LENGTH_SHORT).show();
                                             }
-                                        });
-                                    }
+                                        }
+                                    });
 
-                                    if(rb2ndYear.isChecked()){
-                                        FirebaseDatabase.getInstance().getReference("Students")
-                                                .child("2nd Year")
-                                                .child(name)
-                                                .setValue(studentInfo).addOnCompleteListener(new OnCompleteListener<Void>() {
-                                            @Override
-                                            public void onComplete(@NonNull @NotNull Task<Void> task) {
-                                                if(task.isSuccessful()){
-                                                    Toast.makeText(StudentRegister.this, "Registration Successful!", Toast.LENGTH_SHORT).show();
-//                                                    startActivity(new Intent(getApplicationContext(), TeacherActivity.class));
-                                                }
-                                                else{
-                                                    Toast.makeText(StudentRegister.this, "Registration Unsuccessful!", Toast.LENGTH_SHORT).show();
-                                                }
-                                            }
-                                        });
-                                    }
+//                                    if(rb1stYear.isChecked()){
+//                                        FirebaseDatabase.getInstance().getReference("Students")
+//                                                .child("1st Year")
+//                                                .child(name)
+//                                                .setValue(studentInfo).addOnCompleteListener(new OnCompleteListener<Void>() {
+//                                            @Override
+//                                            public void onComplete(@NonNull @NotNull Task<Void> task) {
+//                                                if(task.isSuccessful()){
+//                                                    Toast.makeText(StudentRegister.this, "Registration Successful!", Toast.LENGTH_SHORT).show();
+//                                                    startActivity(new Intent(getApplicationContext(), StudentActivity.class));
+//                                                }
+//                                                else{
+//                                                    Toast.makeText(StudentRegister.this, "Registration Unsuccessful!", Toast.LENGTH_SHORT).show();
+//                                                }
+//                                            }
+//                                        });
+//                                    }
+//
+//                                    if(rb2ndYear.isChecked()){
+//                                        FirebaseDatabase.getInstance().getReference("Students")
+//                                                .child("2nd Year")
+//                                                .child(name)
+//                                                .setValue(studentInfo).addOnCompleteListener(new OnCompleteListener<Void>() {
+//                                            @Override
+//                                            public void onComplete(@NonNull @NotNull Task<Void> task) {
+//                                                if(task.isSuccessful()){
+//                                                    Toast.makeText(StudentRegister.this, "Registration Successful!", Toast.LENGTH_SHORT).show();
+////                                                    startActivity(new Intent(getApplicationContext(), TeacherActivity.class));
+//                                                }
+//                                                else{
+//                                                    Toast.makeText(StudentRegister.this, "Registration Unsuccessful!", Toast.LENGTH_SHORT).show();
+//                                                }
+//                                            }
+//                                        });
+//                                    }
+//
+//                                    if(rb3rdYear.isChecked()){
+//                                        FirebaseDatabase.getInstance().getReference("Students")
+//                                                .child("3rd Year")
+//                                                .child(name)
+//                                                .setValue(studentInfo).addOnCompleteListener(new OnCompleteListener<Void>() {
+//                                            @Override
+//                                            public void onComplete(@NonNull @NotNull Task<Void> task) {
+//                                                if(task.isSuccessful()){
+//                                                    Toast.makeText(StudentRegister.this, "Registration Successful!", Toast.LENGTH_SHORT).show();
+////                                                    startActivity(new Intent(getApplicationContext(), TeacherActivity.class));
+//                                                }
+//                                                else{
+//                                                    Toast.makeText(StudentRegister.this, "Registration Unsuccessful!", Toast.LENGTH_SHORT).show();
+//                                                }
+//                                            }
+//                                        });
+//                                    }
+//                                }
 
-                                    if(rb3rdYear.isChecked()){
-                                        FirebaseDatabase.getInstance().getReference("Students")
-                                                .child("3rd Year")
-                                                .child(name)
-                                                .setValue(studentInfo).addOnCompleteListener(new OnCompleteListener<Void>() {
-                                            @Override
-                                            public void onComplete(@NonNull @NotNull Task<Void> task) {
-                                                if(task.isSuccessful()){
-                                                    Toast.makeText(StudentRegister.this, "Registration Successful!", Toast.LENGTH_SHORT).show();
-//                                                    startActivity(new Intent(getApplicationContext(), TeacherActivity.class));
-                                                }
-                                                else{
-                                                    Toast.makeText(StudentRegister.this, "Registration Unsuccessful!", Toast.LENGTH_SHORT).show();
-                                                }
-                                            }
-                                        });
-                                    }
-                                }
-                                else {
+                                } else {
                                     Toast.makeText(StudentRegister.this, "Error!", Toast.LENGTH_SHORT).show();
                                     progressDialog.dismiss();
                                 }
